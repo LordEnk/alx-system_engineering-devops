@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Redirect to /redirect_me
+sed -i '37i\rewrite ^/redirect_me “301 Moved Permanently”;' /etc/nginx/sites-available/default
+
+service nginx start
