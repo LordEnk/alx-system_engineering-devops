@@ -1,0 +1,6 @@
+#!/usr/bin/ env bash
+#a script to shorten and sweeten my script
+
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx start
+rm /run/nginx.pid
