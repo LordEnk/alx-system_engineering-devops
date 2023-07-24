@@ -11,10 +11,8 @@ if __name__ == "__main__":
     username = user.get("username")
     todos = requests.get(url + "todos", params={"userId": u_id}).json()
 
-    csv_filename = f'{user_id}.csv'
-    with open(csv_filename, mode='w', newline='') as csv_file:
-        csv_writer = csv.writer(csv_file)
-        csv_writer.writerow(['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS', 'TASK_TITLE'])
-        for completed, title in done_tasks:
-            completed_status = 'Yes' if completed else 'No'
-            csv_writer.writerow([user_id, employee_name, completed_status, title])
+    with open("{}.csv".format(u_id), "w", newline="") as csvfile:
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+        [writer.writerow(
+            [u_id, username, t.get("completed"), t.get("title")]
+        ) for t in todos]
