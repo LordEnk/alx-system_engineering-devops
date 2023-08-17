@@ -1,4 +1,4 @@
-#increases the requests amount an Nginx server can handle
+# Increases the requests amount an Nginx server can handle
 
 # Increase the ULIMIT of the default file
 exec { 'fix-nginx':
@@ -10,3 +10,4 @@ exec { 'fix-nginx':
 exec { 'nginx-restart':
   command => '/etc/init.d/nginx restart',
 }
+
